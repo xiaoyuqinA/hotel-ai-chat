@@ -4,7 +4,7 @@ Base LLM Client
 
 from abc import ABC, abstractmethod
 
-from conversation.snapshot import ConversationSnapshot
+from memory.snapshot import ConversationSnapshot
 
 
 class BaseLLMClient(ABC):

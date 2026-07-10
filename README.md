@@ -420,14 +420,83 @@ memory/
     ├── state.py          # 抽象基类
     └── openai_state.py   # OpenAI 的状态
 ├── tools/
-│   └── functions.py       # Function Calling
-
+│   ├── base.py
+│   ├── schema.py
+│   ├── registry.py
+│   ├── loader.py
+│   ├── executor.py
+│   ├── result.py
+│   └── hotel/
+|       ├── __init__.py
+|       ├── search_hotel.py
 ├── schemas/
 │   └── output.py          # Structured Output
+embedding/
+├── base.py
+├── client.py
+└── openai/
+    ├── __init__.py
+    ├── factory.py
+    ├── embedding.py
+|
+|-knowledge/
+│
+├── admin/
+│   ├── service.py          ⭐ 对外唯一入口
+│   ├── request.py
+│   └── response.py
+│
+├── repository/             ⭐ Document 元数据管理
+│   ├── base.py
+│   └── memory.py
+│
+├── base.py              # Knowledge 抽象接口
+├── client.py            # Knowledge Factory
+├── manager.py           # Knowledge 管理器（协调整个知识入库流程）
+├── default.py           # 默认 Knowledge 实现
+|── source.py           # KnowledgeSource,描述一个知识源（Knowledge Source）。
+|── detector.py         # KnowledgeSourceDetector,识别知识源类型
+│
+├── document.py          # Document 领域模型
+├── chunk.py             # Chunk 领域模型
+│
+├── loader/              # 数据加载层（负责读取各种数据源）
+│   ├── __init__.py
+│   ├── factory.py       # 根据 KnowledgeSource 创建 Loader。
+│   ├── base.py          # Loader 抽象接口
+│   ├── text.py          # Text Loader
+│   ├── markdown.py      # Markdown Loader
+│   ├── pdf.py           # PDF Loader
+│   └── url.py           # URL Loader
+│
+├── parser/              # 内容解析层（负责解析原始数据）
+│   ├── __init__.py
+│   ├── factory.py
+│   ├── base.py          # Parser 抽象接口
+│   ├── text.py          # Text Parser
+│   ├── markdown.py      # Markdown Parser
+│   └── pdf.py           # PDF Parser
+│   └── url.py           # url Parser
+│
+├── chunker/             # 文本切块层（负责将 Document 拆分为 Chunk）
+│   ├── __init__.py
+│   ├── base.py          # Chunker 抽象接口
+│   ├── recursive.py     # Recursive Chunker
+│   └── token.py         # Token Chunker
+│   ├── factory.py   ← 新增
 
-├── embeddings/
-│   └── vector.py          # Embedding
-
+|  
 ├── requirements.txt
 
 └── README.md
+
+
+
+我认为你的框架距离"可复用 AI 框架"只差三件事
+Knowledge Admin（知识生命周期管理）
+Prompt 管理（模板、变量、版本）
+Agent 配置（把 Prompt、Knowledge、Tool 组合起来）
+
+
+不过也要有一个现实预期：不是所有场景都只改 Prompt 和知识库就够了。 有些场景（例如需要审批流、复杂规划、多 Agent 协作）还需要增加新的 Tool 或 Workflow。但对于大量问答、客服、运营分析、内部助手这类场景，你设想的这种复用方式是完全可行的。
+

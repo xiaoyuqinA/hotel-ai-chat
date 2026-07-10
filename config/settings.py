@@ -21,3 +21,23 @@ OPENAI_MODEL = os.getenv(
 OPENAI_API_TYPE = os.getenv(
     "OPENAI_API_TYPE"
 )
+
+LLM_PROVIDER =  os.getenv(
+    "LLM_PROVIDER"
+)
+
+LLM_API  = os.getenv(
+    "LLM_API"
+)
+
+EMBEDDING_PROVIDER = os.getenv(
+    "EMBEDDING_PROVIDER"
+)
+
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL"
+)
+
+VECTOR_STORE_PROVIDER = os.getenv(
+    "VECTOR_STORE_PROVIDER"
+)
