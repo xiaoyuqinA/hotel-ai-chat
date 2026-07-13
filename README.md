@@ -127,42 +127,8 @@ User: 帮我分析一下酒店最近入住率下降的原因
 User: exit
 ```
 
-## Retrieval 说明
 
-当前 `app.py` 中保留了 Retrieval 调用：
+## TODO
 
-```python
-documents = retriever.retrieve(
-    query=snapshot.latest_user_message.content,
-    top_k=5,
-)
-```
-
-如果 `.env` 中的 Embedding 模型不可用，会出现类似错误：
-
-```text
-model_not_found
-No available channel for model text-embedding-3-small
-```
-
-临时解决方案：
-
-1. 换成接口支持的 Embedding 模型；
-2. 或暂时屏蔽 `retriever.retrieve()` 调用，让聊天主流程先跑起来。
-
-## 当前提交与推送
-
-项目已初始化为 Git 仓库，并已推送到：
-
-```text
-git@github.com:xiaoyuqinA/hotel-ai-chat.git
-```
-
-常用命令：
-
-```bash
-git status
-git add .
-git commit -m "message"
-git push
-```
+  - [ ] 模板配置管理：切换模板适配不同的行业，待完成
+  
