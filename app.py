@@ -47,9 +47,6 @@ while True:
         top_k=5,
     )
 
-    #
-    # 注入知识
-    #
     snapshot = snapshot.with_context(
         documents
     )

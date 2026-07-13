@@ -8,7 +8,7 @@ from vectorstore.client import create_vector_store
 from retriever.retriever import DefaultRetriever
 
 
-def create_retriever() -> DefaultRetriever:
+def create_default_retriever() -> DefaultRetriever:
 
     embedding = create_embedding_client()
 

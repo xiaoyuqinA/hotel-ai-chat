@@ -30,6 +30,10 @@ LLM_API  = os.getenv(
     "LLM_API"
 )
 
+OPENAI_EMBEDDING_MODEL = os.getenv(
+    "OPENAI_EMBEDDING_MODEL"
+)
+
 EMBEDDING_PROVIDER = os.getenv(
     "EMBEDDING_PROVIDER"
 )

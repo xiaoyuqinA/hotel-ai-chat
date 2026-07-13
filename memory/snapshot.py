@@ -1,6 +1,3 @@
-from hotel-ai-chat.knowledge.chunk import Chunk
-
-
 from dataclasses import dataclass, replace
 from datetime import datetime
 from typing import Any, Mapping
