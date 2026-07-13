@@ -81,8 +81,8 @@ pip install -r requirements.txt
 
 ```env
 OPENAI_API_KEY=your_api_key
-OPENAI_BASE_URL=https://llm-api.arkcat.cn/v1
-OPENAI_MODEL=MiniMax
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4o-mini
 OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 
 LLM_PROVIDER=openai
